@@ -1,0 +1,17 @@
+.menuDiv{
+    padding-bottom:2%;
+    text-align: right;
+    padding-right: 10%;
+}
+.logo{
+    text-align: left;
+    color: rgb(38, 0, 255);
+    padding-left: 5%;
+}
+.mainDiv{
+text-align: center;
+border: 1px solid black;
+}
+.headerDiv{
+    border: 1px solid black;
+}

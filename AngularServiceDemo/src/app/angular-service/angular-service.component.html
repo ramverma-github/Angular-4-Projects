@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan="6">Employee List From Angular Service</th>
+    </tr>
+    <tr>
+      <th>Emp Id</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Annual Salary</th>
+      <th>Date Of Birth</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employeeList">
+      <th>{{employee.empId}}</th>
+      <th>{{employee.name}}</th>
+      <th>{{employee.gender}}</th>
+      <th>{{employee.annualSalary}}</th>
+      <th>{{employee.dateOfBirth}}</th>
+      <th>{{employee.address}}</th>
+    </tr>
+  </tbody>
+</table>
+<br />
+<button (click)="getEmployeeList()" >Refresh Employee List</button>

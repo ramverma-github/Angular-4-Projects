@@ -1,0 +1,29 @@
+
+<div class="searchText">
+ <input type="text"> <button>Search</button>
+ </div>
+<div class="tableView">
+ <table>
+    <tbody>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>TASK</th>
+        <th>ASSIGNED BY</th>
+        <th>STATUS</th>
+        <th>OPERATION</th>
+      </tr>
+      <tr ngFor='let assignment of assignmentList'>
+          <th>{{assignment.id}}</th>
+          <th>{{assignment.name}}</th>
+          <th>{{assignment.task}}</th>
+          <th>{{assignment.assignedBy}}</th>
+          <th>{{assignment.status}}</th>
+          <th>{{assignment.operation}}</th>
+        </tr>
+        <tr *ngIf="!employeeList || employeeList.length==0">
+          <th colspan="6">No Assignment List Display!</th>
+      </tr>
+    </tbody>
+ </table>
+</div>

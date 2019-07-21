@@ -1,0 +1,22 @@
+<h2>ClientList From RestAPI</h2>
+<table>
+  <thead>
+      <tr>
+          <th>ClientCode</th>
+          <th>Client Name</th>          
+      </tr>
+  </thead> 
+  <tbody>
+       <tr *ngFor='let client of clientList'>     
+          <th>{{client.clientId}}</th>
+          <th>{{client.clientName}}</th>         
+      </tr>
+      <tr *ngIf="!clientList || clientList.length==0">
+          <th colspan="6">
+              No Client Records to Display
+          </th>
+      </tr>
+    
+  </tbody>
+</table>
+<br />

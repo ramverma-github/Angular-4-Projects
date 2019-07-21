@@ -1,0 +1,33 @@
+<div>
+  <h1>Welcome to {{title}}</h1>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Emp Id</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Salary</th>
+      <th>Date Of Birth</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let employee of employeeRecords; trackBy:trackByEmpId'> <!--trackBy Directive avoid the rerendring of data -->
+   <!-- <tr *ngFor='let employee of employeeRecords'>    Normal forLoop we are using here -->  
+      <th>{{employee.id|uppercase}}</th>                        <!-- Using Pipes of Angular Js -->
+      <th>{{employee.name | empTitlePipe:employee.gender}}</th> <!-- Using Custom Pipes of Angular Js -->
+      <th>{{employee.gender | uppercase}}</th>
+      <th>{{employee.salary}}</th>
+      <th>{{employee.dateOfBirth | date:'fullDate' | uppercase}}</th>
+      <th>{{employee.address | uppercase}}</th>
+    </tr>
+    <tr *ngIf="!employeeRecords || employeeRecords.length==0">
+      <th colspan="6">
+        No Employee Records to Display...
+      </th>
+    </tr>
+  </tbody>
+</table>
+<br/>
+<button (click)='getEmployees()'>Refresh EmployeeList</button>

@@ -1,0 +1,38 @@
+
+<app-emp-radio [all]="getTotalEmployeeCount()"
+               [male]="getMaleEmployeeCount()"
+               [female]="getFemaleEmployeeCount()"
+               (countRadioButtonSelectionChange)="onEmployeeCountRadioButtonChange($event)">
+</app-emp-radio>
+<br /> <br />
+<table>
+    <thead>
+      <tr>
+        <th>Emp Id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Annual Salary</th>
+        <th>Date Of Birth</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let employee of employeeList; trackBy:trackByEmpId">
+      <tr *ngIf="selectedEmployeeRadioButtonCount=='All' ||
+                 selectedEmployeeRadioButtonCount==employee.gender">
+        <th>{{employee.empId | uppercase}}</th>
+        <th>{{employee.name | empTitle:employee.gender}}</th>
+        <th>{{employee.gender}}</th>
+        <th>{{employee.annualSalary | currency:'USD':true:'1.3-3'}}</th>
+        <th>{{employee.dateOfBirth}}</th>
+        <th>{{employee.address}}</th>
+      </tr>
+    </ng-container>
+      <tr *ngIf="!employeeList || employeeList.length==0">
+        <th colspan="6">No Employee Display!</th>
+      </tr>
+    </tbody>
+</table>
+<br />
+<button (click)='getEmployeeList()'>Refresh Employee List</button>
+<button (click)='getDeleteEmployeeList()'>Delete All Employee</button>

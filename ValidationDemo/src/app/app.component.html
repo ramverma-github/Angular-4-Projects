@@ -1,0 +1,14 @@
+<div class="form_container">
+  <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+    <header>Login</header>
+    <label>UserName<span>*</span></label>
+    <input id="user" type="text" name="uname" formControlName="uname">
+    <div class="help">At least 6 character required</div>
+
+    <label>Password&nbsp;&nbsp;<span>*</span></label>
+    <input id="pass" type="password" name="passwd" formControlName="passwd">
+    <div class="help">Use Upper & Lower case as well</div>
+
+    <button [disabled]="!formdata.valid" value="Login">Login</button>
+  </form>
+</div>
